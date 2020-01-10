@@ -1,5 +1,7 @@
 # H5混合开发框架2.0版
 
+### 文档地址   
+https://hukejin.github.io/hescjsapi-master/#/
 
 ### 使用说明
 
