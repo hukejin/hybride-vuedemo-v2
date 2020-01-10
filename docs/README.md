@@ -1,8 +1,9 @@
 # H5混合开发框架2.0版
 
+### 文档地址   
+https://hukejin.github.io/hescjsapi-master/#/
 
 ### 使用说明
-
 1.使用npm安装   
 `npm install hesc-jsapi --save`   
 2.在main.js文件里进行全局引入，并注册为全局变量   

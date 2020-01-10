@@ -10,6 +10,14 @@
 				<mainuiitem :item="item"></mainuiitem>
 			</li>
 		</ul>
+		<div class="picgroup">
+			<p>演示input file类型的使用，</p>
+			<input type="file" accept="image/*" multiple="multiple" v-on:change="change($event)" />
+			<div class="showpic">
+				<img v-for="(item,index) in presrc" :key="index" :src="item" style="width: 60px;height: 60px">
+			</div>
+		</div>
+
 	</div>
 </template>
 
@@ -20,6 +28,7 @@
 		data () {
 			return {
 				list: [],
+				presrc:[]
 			}
 		},
 		components:{
@@ -172,6 +181,13 @@
 						})
 					}
 				}
+			},
+			change(event){
+				let fileList = event.target.files;
+				for (let i = 0; i < fileList.length; i++) {
+					let fileUrl = URL.createObjectURL(fileList[i]);  // 获取文件url
+					this.presrc.push(fileUrl);
+				}
 			}
 		},
 		props:[]
@@ -196,5 +212,12 @@
 		background-color: #c8c7cc;
 		content: '';
 		transform: scaleY(.5);
+	}
+	.showpic{
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		align-items: center;
+		margin: 10px 10px;
 	}
 </style>
