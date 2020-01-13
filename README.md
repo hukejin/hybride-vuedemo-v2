@@ -842,6 +842,78 @@ this.$hesc.biz.util.openLink({
     onFail : function(err) {}
 })
 ```
+### vue单页面应用调优，使得页面渲染速度加快
+1. 开启GZIP压缩能力
+#### nginx配置
+```
+http {
+  gzip on;
+  gzip_static on;
+  gzip_min_length 1024;
+  gzip_buffers 4 16k;
+  gzip_comp_level 2;
+  gzip_types text/plain application/javascript application/x-javascript text/css application/xml text/javascript application/x-httpd-php application/vnd.ms-fontobject font/ttf font/opentype font/x-woff image/svg+xml;
+  gzip_vary off;
+  gzip_disable "MSIE [1-6]\.";
+}
+```
+#### tomcat配置
+修改tomcat里/conf/server.xml
+```
+<Connector port="8080"
+   protocol="HTTP/1.1"
+   connectionTimeout="20000"
+   redirectPort="8443"    
+   compression="on" 
+   compressionMinSize="2048" 
+   noCompressionUserAgents="gozilla, traviata"   
+   useSendfile="false" 
+   compressableMimeType="text/html,text/xml,text/javascript,
+ application/javascript,text/css,text/plain,text/json"/>
+```
+```
+参数说明：
+　　1、compression="on" 开启压缩。可选值："on"开启，"off"关闭，"force"任何情况都开启。
+　　2、compressionMinSize="2048"大于2KB的文件才进行压缩。用于指定压缩的最小数据大小，单位B，默认2048B。注意此值的大小，如果配置不合理，产生的后果是小文件压缩后反而变大了，达不到预想的效果。
+　　3、noCompressionUserAgents="gozilla, traviata"，对于这两种浏览器，不进行压缩，其值为正则表达式，匹配的UA将不会被压缩，默认空。
+　　4、compressableMimeType="text/html,text/xml,application/javascript,text/css,text/plain,text/json"会被压缩的MIME类型列表，多个逗号隔，表明支持html、xml、js、css、json等文件格式的压缩
+    5、useSendfile="false" tomcat默认设置是当数据大小达到48kb时，将启用文件传输
+```
+#### 配置完上述服务器，再来加载客户端压缩--配合nginx使用，tomcat好像无效
+```
+npm install compression-webpack-plugin --save-dev
+```
+#### vue.config.js配置Gzip压缩--配合nginx使用，如果是tomcat就不用设置了
+```
+// 导入compression-webpack-plugin
+const CompressionWebpackPlugin = require('compression-webpack-plugin')
+// 定义压缩文件类型
+const productionGzipExtensions = ['js', 'css']
+module.exports = {
+  configureWebpack: {
+    plugins: [
+      new CompressionWebpackPlugin({
+        filename: '[path].gz[query]',
+        algorithm: 'gzip',
+        test: new RegExp('\\.(' + productionGzipExtensions.join('|') + ')$'),
+        threshold: 10240,
+        minRatio: 0.8
+      })
+    ]
+  }
+}
+```
+2.引入cdn的方式，减小打包js体积，可以优先将路由、vuex等等其它JS文件进行CDN引入
+```
+路由
+https://unpkg.com/vue-router/dist/vue-router.js
+
+vuex
+https://unpkg.com/vuex
+
+axios
+https://unpkg.com/axios/dist/axios.min.js
+```
 
 
 

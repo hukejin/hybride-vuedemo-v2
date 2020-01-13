@@ -882,7 +882,7 @@ http {
 ```
 npm install compression-webpack-plugin --save-dev
 ```
-#### vue.config.js配置Gzip压缩
+#### vue.config.js配置Gzip压缩--配合nginx使用，如果是tomcat就不用设置了
 ```
 // 导入compression-webpack-plugin
 const CompressionWebpackPlugin = require('compression-webpack-plugin')
@@ -902,7 +902,17 @@ module.exports = {
   }
 }
 ```
+2.引入cdn的方式，减小打包js体积，可以优先将路由、vuex等等其它JS文件进行CDN引入
+```
+路由
+https://unpkg.com/vue-router/dist/vue-router.js
 
+vuex
+https://unpkg.com/vuex
+
+axios
+https://unpkg.com/axios/dist/axios.min.js
+```
 
 
 
