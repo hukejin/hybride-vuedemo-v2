@@ -913,6 +913,42 @@ https://unpkg.com/vuex
 axios
 https://unpkg.com/axios/dist/axios.min.js
 ```
+### vue单页面应用路由改为history模式后，web部署服务器需要做的改动：
+Apache服务器
+```
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+  RewriteRule ^index\.html$ - [L]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule . /index.html [L]
+</IfModule>
+```
+nginx
+```
+location / {
+  try_files $uri $uri/ /index.html;
+}
+```
+tomcat   
+在项目的发布路径下创建文件夹 WEB-INF并创建文件web.xml，写入以下内容
+```
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+                      http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+  version="3.1"
+  metadata-complete="true">
+	<display-name>XXXX</display-name>
+	<error-page>
+	  <error-code>404</error-code>
+	  <location>/index.html</location>
+	</error-page>
+</web-app>
+```
 
 
 
