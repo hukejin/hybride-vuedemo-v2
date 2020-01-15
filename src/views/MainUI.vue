@@ -86,7 +86,7 @@
 							/* result 结构
 							{
 								province: 'xxx', // POI所在省会，可能为空
-									provinceCode: 'xxx', // POI所在省会编码，可能为空
+								provinceCode: 'xxx', // POI所在省会编码，可能为空
 								city: 'xxx', // POI所在城市，可能为空
 								cityCode: 'xxx', // POI所在城市，可能为空
 								adName: 'xxx', // POI所在区名称，可能为空
@@ -154,7 +154,13 @@
 								alert(JSON.stringify(data))
 								/*
 								{
-									uuid: '3udbhg98ddlljokkkl'
+									screenWidth: 1080, // 手机屏幕宽度
+						            screenHeight: 1920, // 手机屏幕高度
+						            brand:'Mi'， // 手机品牌
+						            model:'Note4', // 手机型号
+						            version:'7.0'. // 版本
+						            netInfo:'wifi' , // 网络类型 wifi／mobile
+						            operatorType :'xx' // 运营商信息
 								}
 								*/
 							},
