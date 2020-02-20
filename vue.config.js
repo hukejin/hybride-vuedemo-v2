@@ -4,8 +4,8 @@ const CompressionWebpackPlugin = require('compression-webpack-plugin')
 const productionGzipExtensions = ['js', 'css']
 
 module.exports = {
-	publicPath : process.env.NODE_ENV === 'production' ? '/hybridvue2/' : '/',
-	outputDir : process.env.NODE_ENV === 'production' ? 'hybridvue2' : 'dist',
+	publicPath : process.env.NODE_ENV === 'production' ? '/hybridvue2/' : '/',//访问的根路径
+	outputDir : process.env.NODE_ENV === 'production' ? 'hybridvue2' : 'dist',//编译生成的文件夹
 	lintOnSave: process.env.NODE_ENV !== 'production',
 	configureWebpack: {
 		plugins: [
