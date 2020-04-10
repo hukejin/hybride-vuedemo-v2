@@ -12,7 +12,7 @@
 		</ul>
 		<div class="picgroup">
 			<p>演示input file类型的使用，</p>
-			<input type="file" accept="image/*" multiple="multiple" v-on:change="change($event)" />
+			<input type="file" accept="image/*" multiple="multiple" capture='camera' v-on:change="change($event)" />
 			<div class="showpic">
 				<img v-for="(item,index) in presrc" :key="index" :src="item" style="width: 60px;height: 60px">
 			</div>
@@ -192,6 +192,7 @@
 				let fileList = event.target.files;
 				for (let i = 0; i < fileList.length; i++) {
 					let fileUrl = URL.createObjectURL(fileList[i]);  // 获取文件url
+					alert(fileUrl);
 					this.presrc.push(fileUrl);
 				}
 			}
