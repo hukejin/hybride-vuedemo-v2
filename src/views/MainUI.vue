@@ -43,6 +43,7 @@
 			this.list.push({title:'地图展示',content:'展示天地图,以杭州为例',url:'./img/map-bubble-hover.png',to:''})
 			this.list.push({title:'当前网络',content:'获取当前网络类型:mobile/wifi',url:'./img/global.png',to:''})
 			this.list.push({title:'当前软件版本',content:'获取容器软件版本',url:'./img/global.png',to:''})
+			this.list.push({title:'自定义调用原生',content:'自定义原生功能',url:'./img/global.png',to:''})
 			this.list.push({title:'进度条颜色',content:'设置页面加载时进度条的颜色',url:'./img/global.png',to:''})
 			this.list.push({title:'UUID',content:'获取设备唯一编码',url:'./img/global.png',to:''})
 			this.list.push({title:'手机信息',content:'获取手机基本信息',url:'./img/global.png',to:''})
@@ -182,6 +183,14 @@
 							name: 'demo.jpg', //定义下载文件名字
 							onSuccess : function(result) {
 								alert("下载成功,文件地址:"+result.path)
+							},
+							onFail : function() {}
+						})
+					}else if(item.title === '自定义调用原生'){
+						this.$hesc.biz.native.method({
+							url: 'http://xxx.jpg',
+							onSuccess : function() {
+								alert("原生方法返回:")
 							},
 							onFail : function() {}
 						})
