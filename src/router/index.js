@@ -72,7 +72,14 @@ const routes = [
       title: '弹窗示范',
     }
   },
-
+  {
+    path: '/http',
+    name: 'http',
+    component: () => import('../views/HttpDemo.vue'),
+    meta: {
+      title: 'axios示范',
+    }
+  },
 ]
 
 const router = new VueRouter({

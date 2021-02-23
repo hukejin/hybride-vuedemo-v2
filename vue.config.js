@@ -17,5 +17,20 @@ module.exports = {
 				minRatio: 0.8
 			})
 		]
-	}
+	},
+	// devServer: {
+	// 	//自动打开浏览器
+    //     open: true,
+    //     //通过代理解决调试中的跨域问题
+    //     proxy: {
+	// 		'/api': {
+    //             target: 'http://localhost:8231/',//代理设置
+    //             ws: true,
+    //             changeOrigin: true,
+    //             pathRewrite: {
+    //                 '^/api': '/api'
+    //             }
+    //         },
+	// 	}
+	// }
 }
