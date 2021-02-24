@@ -23,7 +23,9 @@
 
     },
     methods:{
-
+          hello(name){
+               console.log("hello-----"+name);
+          }
     },
     props:{item:{}}
 
