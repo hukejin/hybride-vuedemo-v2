@@ -53,6 +53,7 @@
 			this.list.push({title:'数据缓存',content:'将web数据进行本地永久化存取',url:'./img/db.png',to:'localstorage'})
 			this.list.push({title:'操作原生activity',content:'打开第三方APP或者启动原生UI',url:'./img/app.png',to:'openactivity'})
 			this.list.push({title:'dialog弹窗',content:'dialog、toast、单选、多选、日期选择',url:'./img/app.png',to:'dialog'})
+			this.list.push({title:'http请求例子',content:'axios基本操作',url:'./img/app.png',to:'http'})
 
 		},
 		methods:{

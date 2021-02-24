@@ -10,7 +10,7 @@ https://hukejin.github.io/hescjsapi-master/#/
 `import {hesc} from 'hesc-jsapi'`   
 `Vue.prototype.$hesc = hesc`   
 3.在单页面的 index.html 文件中引入 CDN 链接。    
-https://cdn.jsdelivr.net/npm/hesc-hybrid-master@1.0.4/index.min.js
+https://cdn.jsdelivr.net/npm/hesc-hybrid-master@1.0.5/index.min.js
 
 ---
 #### 接口约定

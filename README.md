@@ -12,7 +12,7 @@ https://hukejin.github.io/hescjsapi-master/#/
 `Vue.prototype.$hesc = hesc`   
 3.在单页面的 index.html 文件中引入 CDN 链接。    
 ```
-https://cdn.jsdelivr.net/npm/hesc-hybrid-master@1.0.4/index.min.js
+https://cdn.jsdelivr.net/npm/hesc-hybrid-master@1.0.5/index.min.js
 或者
 https://unpkg.com/hesc-hybrid-master/index.js
 ```
@@ -839,6 +839,17 @@ this.$hesc.device.audio.onPlayEnd({
 ```
 this.$hesc.biz.util.openLink({
     url:"http://www.dingtalk.com",//要打开链接的地址
+    onSuccess : function() {
+        /**/
+    },
+    onFail : function(err) {}
+})
+```
+### 16调用原生功能
+##### 16.1直接调用原生功能
+```
+this.$hesc.biz.native.method({
+    param:object,//任何json都可以
     onSuccess : function() {
         /**/
     },

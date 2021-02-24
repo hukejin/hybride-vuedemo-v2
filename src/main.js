@@ -11,6 +11,12 @@ Vue.use(NavBar);
 import {hesc} from 'hesc-jsapi'
 Vue.prototype.$hesc = hesc
 
+import httputils from './assets/js/HttpUtils'
+Vue.prototype.$httputils = httputils
+
+import { Uploader } from 'vant';
+Vue.use(Uploader);
+
 new Vue({
   router,
   store,

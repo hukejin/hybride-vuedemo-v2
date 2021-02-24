@@ -30,6 +30,7 @@
 		mounted() {
 			this.list.push({title:'打开第三方APP',content:'打开城管通APP，需要APP包名',url:'./img/app.png'})
 			this.list.push({title:'打开第三方web',content:'实现新的webview加载url,进行页面跳转',url:'./img/app.png'})
+			this.list.push({title:'JS主动调用原生能力',content:'页面通过JS方法直接调用原生的方法',url:'./img/app.png'})
 
 		},
 		methods:{
@@ -54,6 +55,23 @@
 						hrefurl: 'https://www.baidu.com',//打开的第三方地址
 						onSuccess : function() {
 							console.log("打开成功")
+						},
+						onFail : function(err) {
+							alert(err)
+						}
+					})
+
+				}else if(item.title === "JS主动调用原生能力"){
+					let toNative = {
+						'action':'login',
+						'name':'jake',
+						'password':'9998'
+					}
+					//模拟传值过程
+					this.$hesc.biz.native.method({
+						param: toNative,//打开的第三方地址
+						onSuccess : function() {
+							console.log("调用成功")
 						},
 						onFail : function(err) {
 							alert(err)
