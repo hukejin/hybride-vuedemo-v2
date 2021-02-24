@@ -81,6 +81,22 @@
 						onSuccess : function() {
 							//如果control为true，则onSuccess将在发生按钮点击事件被回调
 							alert("右边按钮被点击")
+							this.$hesc.biz.navigation.setRight({
+								show: true,//控制按钮显示， true 显示， false 隐藏， 默认true
+								control: true,//是否控制点击事件，true 控制，false 不控制， 默认false
+								text: '发送',//控制显示文本，空字符串表示显示默认文本
+								// onSuccess : function() {
+								// 	//如果control为true，则onSuccess将在发生按钮点击事件被回调
+								// 	alert("右边按钮被点击111")
+
+									
+								// },
+								// onFail : function(err) {
+								// 	alert(err)
+								// }
+							});
+
+
 						},
 						onFail : function(err) {
 							alert(err)
