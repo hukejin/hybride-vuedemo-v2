@@ -11,6 +11,9 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  background-color: #42b983;
 }
 
 #nav {

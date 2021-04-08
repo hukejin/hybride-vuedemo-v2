@@ -17,6 +17,8 @@ Vue.prototype.$httputils = httputils
 import { Uploader } from 'vant';
 Vue.use(Uploader);
 
+import vConsole from '@/assets/js/vconsole.js'
+
 new Vue({
   router,
   store,

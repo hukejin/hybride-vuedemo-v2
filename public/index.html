@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,,maximum-scale=1,user-scalable=no">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
     <title>hesc-hybrid-vue-v2</title>
     <style>
@@ -55,30 +55,28 @@
           font-size: 56.89px !important;
         }
       }
+      
+      /* body::-webkit-scrollbar {
+          display: none;
+      }
+      .outer{
+        padding-bottom: 10px;
+        margin-bottom: -10px;
+      } */
     </style>
-    <!--<script>-->
-      <!--(function (doc, win) {-->
-        <!--var docEl = doc.documentElement,-->
-                <!--resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',-->
-                <!--recalc = function () {-->
-                  <!--var clientWidth = docEl.clientWidth;-->
-                  <!--if (!clientWidth) return;-->
-                  <!--docEl.style.fontSize = 20 * (clientWidth / 375) + 'px';-->
-                <!--};-->
-
-        <!--if (!doc.addEventListener) return;-->
-        <!--win.addEventListener(resizeEvt, recalc, false);-->
-        <!--doc.addEventListener('DOMContentLoaded', recalc, false);-->
-      <!--})(document, window);-->
-    <!--</script>-->
+  
   </head>
   <body>
     <noscript>
       <strong>We're sorry but hesc-hybrid-vue-v2 doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
-    <div id="app"></div>
+    <div style="width: 100%;position: relative;" class="outer">
+      <div id="app"></div>
+    </div>
+    
     <!-- built files will be auto injected -->
     <script src="https://unpkg.com/hesc-hybrid-master/index.js"></script>
-    <!--<script src="https://cdn.jsdelivr.net/npm/hesc-hybrid-master@1.0.4/index.js"></script>-->
+   
+
   </body>
 </html>
