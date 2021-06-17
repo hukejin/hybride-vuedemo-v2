@@ -7,9 +7,10 @@
 				right-text=""></van-nav-bar>
 		<ul class="menulist">
 			<li v-for="item in list" @click="todesc(item)" :key="item.title">
-				<mainuiitem :item="item"></mainuiitem>
+				<mainuiitem :item="item" ref="mainitem"></mainuiitem>
 			</li>
 		</ul>
+
 		<div class="picgroup">
 			<p>演示input file类型的使用，</p>
 			<input type="file" accept="image/*" multiple="multiple" capture='camera' v-on:change="change($event)" />
@@ -28,7 +29,8 @@
 		data () {
 			return {
 				list: [],
-				presrc:[]
+				presrc:[],
+				cp:mainuiitem
 			}
 		},
 		components:{
@@ -56,6 +58,7 @@
 		},
 		methods:{
 			todesc(item){
+				console.log("@@@",this.$refs.mainitem[0].hello("bage"));
 				if(item.to !== undefined && item.to !== ""){
 					this.$router.push({
 						name: item.to
