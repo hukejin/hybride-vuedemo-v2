@@ -12,8 +12,8 @@
 		</ul>
 
 		<div class="picgroup">
-			<p>演示input file类型的使用，</p>
-			<input type="file" accept="image/*" multiple="multiple" capture='camera' v-on:change="change($event)" />
+			<p style="margin: 10px 10px;">演示input file类型的使用</p>
+			<input type="file" accept="image/*" multiple="multiple" v-on:change="change($event)" />
 			<div class="showpic">
 				<img v-for="(item,index) in presrc" :key="index" :src="item" style="width: 60px;height: 60px">
 			</div>

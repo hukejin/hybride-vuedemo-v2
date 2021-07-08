@@ -56,7 +56,10 @@ export default {
                 console.log("data",res.data);
             }).catch(err => console.log("err",err))
         }
-    }
+    },
+    onClickLeft(){
+				this.$router.go(-1)
+		},
   },
  }
 </script>
