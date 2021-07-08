@@ -55,7 +55,7 @@
 						mediaUrl:"http://220.191.224.215/file/file/uploadFiles/",//附件服务器地址
 						onThumbnail : function(result) {
 							for (let item in result.thumbnails) {
-								let hearder = "data:image/png;base64,";
+								let hearder = "data:image/jpg;base64,";
 								let arrNew = new Array()
 								arrNew.push(hearder)
 								arrNew.push(result.thumbnails[item])
